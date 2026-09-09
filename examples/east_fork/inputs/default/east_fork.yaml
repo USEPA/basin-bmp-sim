@@ -17,7 +17,7 @@ cps: [340, 329, 590, 412, 656]
 # Optional reusable distribution catalog
 input_distributions: ./examples/east_fork/inputs/default/input_distributions.csv
 
-pollutant_load_rate: ./examples/east_fork/inputs/default/pollutant_yield.csv
+pollutant_load_rate: ./examples/east_fork/inputs/default/pollutant_load_rate.csv
 bmp_efficiency: ./examples/east_fork/inputs/default/bmp_efficiency.csv
 bmp_cost: ./examples/east_fork/inputs/default/bmp_cost.csv
 

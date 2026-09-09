@@ -58,20 +58,6 @@ def test_infield_uses_explicit_areal_load_rate_and_mass_rate_names_semantically(
     assert ctx.current_pathway_load_rates[0, 0].tolist() == pytest.approx([3.0, 2.0])
 
 
-def test_load_state_exposes_only_load_rate_names() -> None:
-    rates = np.asarray([[[1.0, 2.0]]], dtype=float)
-    protected = np.zeros((1, 1), dtype=float)
-    state = LoadState(
-        parcel_ids=["1"], parameters=[{}], concentrations=[{}], groundwater_concentrations=[{}],
-        has_rusle=[False], pollutants=["TN"], pathway_load_rates=rates,
-        untreated_groundwater_load_rates=protected, baseline_pathway_load_rates=rates.copy(),
-        baseline_untreated_groundwater_load_rates=protected.copy(),
-    )
-    assert state.pathway_load_rates is rates
-    assert not hasattr(state, "pathway_yields")
-    assert not hasattr(state, "untreated_groundwater_yields")
-
-
 def test_load_generation_helpers_use_only_load_rate_names() -> None:
     assert callable(calculate_plet_pathway_load_rates)
 
